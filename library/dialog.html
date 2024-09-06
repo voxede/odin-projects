@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario en dialog</title>
+    <style>
+        dialog {
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: none;
+            border: 1px solid #000;
+            font: 20px;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            background-color: red;
+        }
+
+        label {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <button id="openDialog">Abrir Formulario</button>
+    <dialog id="formDialog">
+        <button class="close-btn" id="closeDialog">X</button>
+        <form action="#" id="userForm">
+            <label for="name">Nombre:</label>
+            <input type="text" name="name" id="name">
+            <br><br>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email">
+            <br><br>
+            <button type="submit">Enviar</button>
+        </form>
+    </dialog>
+
+    <script>
+        const openDialogButton = document.querySelector('#openDialog')
+        const closeDialogButton = document.querySelector('#closeDialog')
+        const dialog = document.querySelector('#formDialog')
+        const form = document.querySelector('#userForm')
+
+        openDialogButton.addEventListener('click', () => {
+            dialog.showModal()
+        })
+
+        closeDialogButton.addEventListener('click', () => {
+            dialog.close()
+        })
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            const formData = new FormData(form)
+            const data = Object.fromEntries(formData)
+
+            console.log('Datos guardados:', data.name)
+
+            dialog.close()
+        })
+    </script>
+</body>
+</html>

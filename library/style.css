@@ -17,15 +17,36 @@
 }
 
 .header {
-    background-color: lightgreen;
+    background-color: lightsteelblue;
     grid-area: header;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
+.header-brand {
+    background-color: blue;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.header button {
+    background-color: lightgreen;
+    color: green;
+    border: 2px solid darkgreen;
+    padding: 5px;
+    width: 180px;
+    height: 80px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .footer {
-    background-color: lightyellow;
+    background-color: lightseagreen;
     grid-area: footer;
 }
 
@@ -36,12 +57,14 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-template-rows: repeat(4, 1fr);
     gap: 5px;
-    margin-top: 5px;
 }
 
 .card {
     background-color: lightsalmon;
+    border: 2px solid salmon;
+    border-radius: 5px;
     padding: 10px;
+    margin-top: 10px;
 }
 
 .card h1 {
